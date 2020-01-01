@@ -202,6 +202,8 @@ class Job:
     def handle_seats(self, allow_seats, ticket_info):
         for seat in allow_seats:  # 检查座位是否有票
             self.set_seat(seat)
+            if self.current_seat == None:
+                continue
             ticket_of_seat = ticket_info[self.current_seat]
             if not self.is_has_ticket_by_seat(ticket_of_seat):  # 座位是否有效
                 continue
